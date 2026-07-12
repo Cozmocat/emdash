@@ -1,28 +1,264 @@
 /*
-  theme.css -- your theme overrides. This is the file to edit to
-  retheme the site.
-
-  Every design token lives in src/styles/tokens.css (colors, type
-  scale, spacing, layout, shadows) with its default value. Override any
-  of them here: declarations in this file are unlayered, so they always
-  beat the @layer base defaults in tokens.css.
-
-  Colors are defined with light-dark(). Overriding with a plain color
-  changes light and dark mode at once; use light-dark(<light>, <dark>)
-  to set different values per mode.
-
-  Webfonts are loaded in astro.config.mjs (--font-body, --font-mono).
-  Swap the loaded font there; use overrides here for system fonts or a
-  separate heading face.
-
-  Example:
-
-  :root {
-    --color-brand: light-dark(#0f766e, #2dd4bf);
-    --font-heading: "Iowan Old Style", Georgia, serif;
-    --radius: 8px;
-  }
+  UniSC Athletics presentation overrides.
+  Keep imported page content unchanged; this only rethemes the blog shell.
 */
-
 :root {
+	--color-bg: #f4f4f2;
+	--color-bg-subtle: #3f78a5;
+	--color-text: #636a6d;
+	--color-text-secondary: #737a7d;
+	--color-muted: #8b9193;
+	--color-border: #d7dcdd;
+	--color-border-subtle: #e7e9e9;
+	--color-surface: #ffffff;
+	--color-brand: #3f78a5;
+	--color-brand-hover: #2f638f;
+	--font-body: Arial, Helvetica, sans-serif;
+	--font-heading: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	--font-weight-heading: 700;
+	--font-weight-display: 700;
+	--wide-width: 1200px;
+	--max-width: 1200px;
+	--nav-height: 88px;
+	--radius: 0;
+	--radius-lg: 0;
+}
+
+body {
+	background: #f4f4f2;
+	color: #636a6d;
+}
+
+.site-header {
+	position: relative;
+	height: 590px;
+	background: #3f78a5;
+	border-bottom: 8px solid #dededb;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	overflow: hidden;
+}
+
+.nav {
+	position: relative;
+	z-index: 2;
+	max-width: var(--wide-width);
+	height: var(--nav-height);
+	padding: 24px 20px 16px;
+}
+
+.site-title {
+	font-size: 0;
+	color: #fff;
+}
+
+.site-title::before {
+	content: "USCAC";
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2.3rem;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+	color: #fff;
+}
+
+.site-title:hover,
+.site-title:hover::before {
+	color: #fff;
+}
+
+.nav-right {
+	gap: 1.5rem;
+}
+
+.nav-links {
+	gap: 1.35rem;
+	font-size: 0.9rem;
+}
+
+.nav-links a,
+.nav-admin {
+	color: #fff;
+}
+
+.nav-links a:hover,
+.nav-admin:hover {
+	color: #e5f2fb;
+}
+
+.site-search {
+	width: 150px;
+}
+
+:global(.site-search-input) {
+	width: 150px;
+	background: rgba(255, 255, 255, 0.12);
+	border-color: rgba(255, 255, 255, 0.38);
+	color: #fff;
+}
+
+:global(.site-search-input)::placeholder {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.site-header::before {
+	content: "University of the";
+	position: absolute;
+	top: 132px;
+	left: 0;
+	right: 0;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: clamp(1.8rem, 3.6vw, 3rem);
+	font-style: italic;
+	text-align: center;
+}
+
+.site-header::after {
+	content: "SUNSHINE COAST ATHLETICS CLUB";
+	position: absolute;
+	top: 245px;
+	left: 0;
+	right: 0;
+	padding: 0 1rem;
+	color: #fff;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+	font-weight: 800;
+	letter-spacing: 0.015em;
+	line-height: 1.15;
+	text-align: center;
+}
+
+main {
+	background: #fff;
+}
+
+.page-article {
+	max-width: var(--wide-width);
+	padding: 92px 32px 110px;
+	background: #fff;
+}
+
+.page-header {
+	margin-bottom: 3.5rem;
+}
+
+.page-title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: clamp(1.8rem, 3vw, 2.5rem);
+	font-weight: 700;
+	color: #3f78a5;
+}
+
+.page-content {
+	max-width: 1020px;
+	margin: 0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.65;
+	color: #70777a;
+}
+
+.page-content :global(h4) {
+	margin: 0 0 1.75rem;
+	color: #83888a;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size: clamp(1.7rem, 3vw, 2.5rem);
+	font-weight: 700;
+	line-height: 1.15;
+	text-transform: uppercase;
+}
+
+.page-content :global(h5) {
+	margin: 3rem 0 1.25rem;
+	color: #83888a;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.page-content :global(p) {
+	margin-bottom: 0.85rem;
+}
+
+.page-content :global(strong) {
+	color: #2d3336;
+}
+
+.page-content :global(a) {
+	color: var(--color-brand);
+}
+
+.site-footer {
+	background: #3f78a5;
+	border-top: 0;
+	color: #fff;
+}
+
+.footer-inner {
+	padding-top: 4rem;
+}
+
+.footer-tagline,
+.footer-heading,
+.footer-links a,
+.footer-copyright,
+.footer-copyright a {
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.footer-heading {
+	color: #fff;
+}
+
+.theme-switcher {
+	background: rgba(255, 255, 255, 0.14);
+}
+
+.theme-btn {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-btn.active {
+	background: rgba(255, 255, 255, 0.22);
+	color: #fff;
+}
+
+.nav-admin {
+	margin-inline-start: var(--spacing-5);
+}
+
+@media (max-width: 640px) {
+	.site-header {
+		height: 460px;
+	}
+
+	.nav {
+		height: auto;
+		padding: 18px 16px 12px;
+	}
+
+	.site-title::before {
+		font-size: 1.7rem;
+	}
+
+	.site-header::before {
+		top: 105px;
+		padding: 0 1rem;
+		font-size: 1.65rem;
+	}
+
+	.site-header::after {
+		top: 190px;
+		font-size: 2.15rem;
+	}
+
+	.page-article {
+		padding: 58px 20px 72px;
+	}
+
+	.page-content {
+		font-size: 0.98rem;
+	}
 }
